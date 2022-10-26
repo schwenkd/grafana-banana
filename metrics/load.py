@@ -14,7 +14,7 @@ def main(classification):
     with Session() as s:
         for i in range(60):
             data[0] = gauss(6, 2) if classification else gauss(0, 0.05)
-            resp = s.post("http://localhost:5000", json=data)
+            resp = s.post("http://localhost:5002", json=data)
             resp.raise_for_status()
             if i % 10 == 0:
                 print(f"response[{i}]: {resp.json()}")
